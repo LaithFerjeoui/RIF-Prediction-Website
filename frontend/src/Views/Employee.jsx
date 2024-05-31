@@ -23,7 +23,11 @@ const Employee = () => {
 
   return (
     <div className="container mx-auto mt-8 max-w-md">
-      <h2 className="text-2xl font-bold mb-6">Edit Employee Details</h2>
+       <div className='flex justify-center '>
+      <p className="text-center text-3xl my-20 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400  to-blue-800 border-b border-gray-900 w-fit">
+      Edit Employee Details
+        </p>
+    </div>
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
         <div className="mb-4">
           <label htmlFor="id" className="block text-sm font-medium text-gray-700">

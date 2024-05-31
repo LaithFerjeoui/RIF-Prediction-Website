@@ -49,7 +49,11 @@ const Admin = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-6">Admin Panel</h2>
+       <div className='flex justify-center '>
+      <p className="text-center text-3xl mb-5 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400  to-blue-800 border-b border-gray-900 w-fit">
+         Admin Panel
+        </p>
+    </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {teams.map((team, teamIndex) => (
           <div key={teamIndex} className="bg-white shadow-md rounded-lg p-6">
@@ -92,12 +96,15 @@ const Admin = () => {
           </div>
         ))}
       </div>
-      <button
+      <div className='flex justify-center'>
+        <button
         onClick={handleAddTeam}
-        className="mt-8 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+        className=" mt-8 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
       >
         Add Team
       </button>
+      </div>
+      
     </div>
   );
 };

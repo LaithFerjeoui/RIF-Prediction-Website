@@ -41,9 +41,16 @@ const teamsData = [
 
 const Teams = () => {
   return (
+    <>
+    <div className='flex justify-center '>
+      <p className="text-center text-3xl my-20 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400  to-blue-800 border-b border-gray-900 w-fit">
+         Available Teams
+        </p>
+    </div>
+    
     <div className="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {teamsData.map((team, index) => (
-        <div key={index} className="bg-white shadow-md rounded-lg p-6">
+        <div key={index} className="bg-gray-300 shadow-md rounded-lg p-6 border-2 border-gray-400 hover:scale-105 duration-200">
           <h2 className="text-xl font-bold mb-4">{team.name}</h2>
           <ul className="list-disc list-inside">
             {team.employees.map((employee, idx) => (
@@ -53,6 +60,8 @@ const Teams = () => {
         </div>
       ))}
     </div>
+    </>
+    
   );
 };
 

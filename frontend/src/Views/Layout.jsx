@@ -12,11 +12,12 @@ import LandingPage from "./LandingPage";
 import Employee from "./Employee";
 import Admin from "./Admin";
 import Teams from "./Teams";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
-  { name: "Edit Personel Info", href: "#", icon: CogIcon, current: false },
-  { name: "Manage Teams", href: "#", icon: UsersIcon, current: false },
+  { name: "Home", href: "/landing", icon: HomeIcon, current: true },
+  { name: "Edit Personel Info", href: "/Employee", icon: CogIcon, current: false },
+  { name: "Manage Teams", href: "/Admin", icon: UsersIcon, current: false },
   {
     name: "Manage Joining Requests",
     href: "#",
@@ -26,7 +27,7 @@ const navigation = [
   },
   {
     name: "Request To Join Team",
-    href: "#",
+    href: "/Teams",
     icon: CalendarIcon,
     current: false,
   },
@@ -55,9 +56,9 @@ export default function Layout({ flag }) {
               <ul role="list" className="-mx-2 space-y-1">
                 {navigation.map((item) => (
                   <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className={`group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                    <Link to={item.href}>
+                    <button
+                      className={`w-full group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
                         selectedItem === item
                           ? "bg-indigo-700 text-white"
                           : "text-indigo-200 hover:text-white hover:bg-indigo-700"
@@ -74,7 +75,8 @@ export default function Layout({ flag }) {
                         aria-hidden="true"
                       />
                       {item.name}
-                    </a>
+                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
