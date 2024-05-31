@@ -30,6 +30,10 @@ const router = createBrowserRouter([
     element: <Teams />
   },
 ]);
+    path:'/admin',
+    element: <AdminPage/>
+  },
+])
 
 function App() {
   return (
