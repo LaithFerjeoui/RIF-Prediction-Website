@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpg"; 
-import logo from "../assets/logo.png"; 
 const Login = () => {
   return (
     <section class="bg-gray-50 dark:bg-gray-900">

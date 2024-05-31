@@ -102,13 +102,5 @@ const Admin = () => {
   );
 };
 
-export default Admin;
-import React from 'react'
 
-const Admin = () => {
-  return (
-    <div>AdminPage</div>
-  )
-}
-
-export default LandingPage
+export default Admin
