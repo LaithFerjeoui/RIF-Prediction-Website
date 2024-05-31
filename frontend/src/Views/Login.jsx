@@ -5,8 +5,8 @@ const Login = () => {
   return (
     <section class="bg-gray-50 dark:bg-gray-900">
       <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white border-b">
-          <img src={logo} alt="Logo" className="h-12 w-auto" />
+      <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white ">
+          <img src={logo} alt="Logo" className="h-12 w-auto rounded-lg" />
         </a>
         <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -55,15 +55,7 @@ const Login = () => {
                 </button>
               </Link>
 
-              <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don’t have an account yet?{" "}
-                <a
-                  href="#"
-                  class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Sign up
-                </a>
-              </p>
+              
             </form>
           </div>
         </div>

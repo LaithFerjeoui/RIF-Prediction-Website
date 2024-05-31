@@ -5,6 +5,7 @@ import LandingPage from "./Views/LandingPage";
 import Employee from "./Views/Employee";
 import Admin from "./Views/Admin";
 import Teams from "./Views/Teams";
+import Layout from "./Views/Layout";
 
 
 const router = createBrowserRouter([
@@ -14,20 +15,20 @@ const router = createBrowserRouter([
   },
   {
     path: '/landing',
-    element: <LandingPage />
+    element: <Layout flag={"landing"}/>
   },
   {
     path: '/Employee',
-    element: <Employee/>
+    element: <Layout flag={"employee"}/>
     
   },
   {
     path: '/Admin',
-    element: <Admin />
+    element: <Layout flag={"admin"}/>
   },
   {
     path: '/Teams',
-    element: <Teams />
+    element: <Layout flag={"teams"}/>
   },
 ]);
    
