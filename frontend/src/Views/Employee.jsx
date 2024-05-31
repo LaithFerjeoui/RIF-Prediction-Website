@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-const LandingPage = () => {
+const Employee = () => {
   const [formData, setFormData] = useState({
     id: '',
     jobLevel: '',
     totalYearsInCompany: '',
-    totalWorkingTime: '',
-    projectComplexity: '1' // Default value
+    totalYearsInDomain: ''
   });
 
   const handleChange = (e) => {
@@ -23,8 +22,9 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8">
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <div className="container mx-auto mt-8 max-w-md">
+      <h2 className="text-2xl font-bold mb-6">Edit Employee Details</h2>
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
         <div className="mb-4">
           <label htmlFor="id" className="block text-sm font-medium text-gray-700">
             ID
@@ -53,7 +53,7 @@ const LandingPage = () => {
         </div>
         <div className="mb-4">
           <label htmlFor="totalYearsInCompany" className="block text-sm font-medium text-gray-700">
-            Total Years in Company
+            Total Working Years in Company
           </label>
           <input
             type="text"
@@ -65,43 +65,27 @@ const LandingPage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="totalWorkingTime" className="block text-sm font-medium text-gray-700">
-            Total Working Time (years)
+          <label htmlFor="totalYearsInDomain" className="block text-sm font-medium text-gray-700">
+            Total Working Years in Domain
           </label>
           <input
             type="text"
-            id="totalWorkingTime"
-            name="totalWorkingTime"
-            value={formData.totalWorkingTime}
+            id="totalYearsInDomain"
+            name="totalYearsInDomain"
+            value={formData.totalYearsInDomain}
             onChange={handleChange}
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
           />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="projectComplexity" className="block text-sm font-medium text-gray-700">
-            Project Complexity
-          </label>
-          <select
-            id="projectComplexity"
-            name="projectComplexity"
-            value={formData.projectComplexity}
-            onChange={handleChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          >
-            <option value="1">Low</option>
-            <option value="2">Medium</option>
-            <option value="3">High</option>
-          </select>
         </div>
         <button
           type="submit"
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
         >
-          Predict
+          Save
         </button>
       </form>
     </div>
   );
 };
 
-export default LandingPage;
+export default Employee;
