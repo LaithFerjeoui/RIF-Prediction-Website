@@ -41,7 +41,7 @@ export default function Layout({ flag }) {
   const [selectedItem, setSelectedItem] = useState(navigation[0]);
   return (
     <div className="flex">
-      <div className="flex grow flex-col gap-y-5  bg-indigo-600 px-6 w-[300px] h-screen">
+      <div className="flex grow flex-col gap-y-5  bg-indigo-600 px-6 w-[300px] h-screen sticky top-0 ">
         <div className="flex h-16 shrink-0 items-center gap-5">
           <img
             className="h-8 w-auto rounded-lg"

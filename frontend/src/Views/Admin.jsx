@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import AddTeamModal from '../Constants/AddTeamModal';
+import { toast } from 'react-toastify';
 
 const Admin = () => {
   const [teams, setTeams] = useState([
@@ -22,6 +24,8 @@ const Admin = () => {
 
   const handleAddTeam = () => {
     setTeams([...teams, { name: 'New Team', employees: [] }]);
+    setOpen(false)
+    toast.success('Team added successfully')
   };
 
   const handleRemoveTeam = (index) => {
@@ -46,7 +50,7 @@ const Admin = () => {
     );
     setTeams(updatedTeams);
   };
-
+  const [open,setOpen]= useState(false)
   return (
     <div className="container mx-auto mt-8">
        <div className='flex justify-center '>
@@ -98,13 +102,13 @@ const Admin = () => {
       </div>
       <div className='flex justify-center'>
         <button
-        onClick={handleAddTeam}
-        className=" mt-8 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+        onClick={setOpen}
+        className="mb-5 mt-8 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
       >
         Add Team
       </button>
       </div>
-      
+      <AddTeamModal open={open} setOpen={handleAddTeam} />
     </div>
   );
 };
