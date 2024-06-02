@@ -13,14 +13,22 @@ import Employee from "./Employee";
 import Admin from "./Admin";
 import Teams from "./Teams";
 import { Link } from "react-router-dom";
+import Requests from "./Requests";
+import { IoPersonAdd } from "react-icons/io5";
+import JoinTeam from "./JoinTeam";
 
 const navigation = [
   { name: "Home", href: "/landing", icon: HomeIcon, current: true },
-  { name: "Edit Personel Info", href: "/Employee", icon: CogIcon, current: false },
+  {
+    name: "Edit Personel Info",
+    href: "/Employee",
+    icon: CogIcon,
+    current: false,
+  },
   { name: "Manage Teams", href: "/Admin", icon: UsersIcon, current: false },
   {
     name: "Manage Joining Requests",
-    href: "#",
+    href: "/requests",
     icon: DocumentDuplicateIcon,
     count: "12",
     current: false,
@@ -29,6 +37,12 @@ const navigation = [
     name: "Request To Join Team",
     href: "/Teams",
     icon: CalendarIcon,
+    current: false,
+  },
+  {
+    name: "Join a Team",
+    href: "/joinTeam",
+    icon: IoPersonAdd,
     current: false,
   },
 ];
@@ -41,14 +55,16 @@ export default function Layout({ flag }) {
   const [selectedItem, setSelectedItem] = useState(navigation[0]);
   return (
     <div className="flex">
-      <div className="flex grow flex-col gap-y-5  bg-indigo-600 px-6 w-[300px] h-screen sticky top-0 ">
-        <div className="flex h-16 shrink-0 items-center gap-5">
+      <div className="flex grow flex-col gap-y-5  bg-indigo-600 px-2 sm:px-6 w-14 sm:w-[300px] h-screen sticky top-0 ">
+        <div className="flex h-16 items-center gap-5">
           <img
-            className="h-8 w-auto rounded-lg"
+            className="h-8 w-auto mx-auto sm:mx-0 rounded-lg"
             src={logo}
             alt="Your Company"
           />
-          <p className="text-gray-100 text-lg font-bold">RIF Estim</p>
+          <p className="text-gray-100 text-lg font-bold hidden sm:block">
+            RIF Estim
+          </p>
         </div>
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -57,25 +73,25 @@ export default function Layout({ flag }) {
                 {navigation.map((item) => (
                   <li key={item.name}>
                     <Link to={item.href}>
-                    <button
-                      className={`w-full group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
-                        selectedItem === item
-                          ? "bg-indigo-700 text-white"
-                          : "text-indigo-200 hover:text-white hover:bg-indigo-700"
-                      }`}
-                      onClick={() => setSelectedItem(item)}
-                    >
-                      <item.icon
-                        className={classNames(
-                          item.current
-                            ? "text-white"
-                            : "text-indigo-200 group-hover:text-white",
-                          "h-6 w-6 shrink-0"
-                        )}
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </button>
+                      <div
+                        className={`w-full group flex justify-center sm:justify-start gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold ${
+                          selectedItem === item
+                            ? "bg-indigo-700 text-white"
+                            : "text-indigo-200 hover:text-white hover:bg-indigo-700"
+                        }`}
+                        onClick={() => setSelectedItem(item)}
+                      >
+                        <item.icon
+                          className={classNames(
+                            item.current
+                              ? "text-white"
+                              : "text-indigo-200 group-hover:text-white",
+                            "h-6 w-6 shrink-0"
+                          )}
+                          aria-hidden="true"
+                        />
+                        <p className="hidden sm:block"> {item.name}</p>
+                      </div>
                     </Link>
                   </li>
                 ))}
@@ -108,6 +124,10 @@ export default function Layout({ flag }) {
           <Admin />
         ) : flag === "teams" ? (
           <Teams />
+        ) : flag === "requests" ? (
+          <Requests />
+        ) : flag === "joinTeam" ? (
+          <JoinTeam />
         ) : null}
       </div>
     </div>

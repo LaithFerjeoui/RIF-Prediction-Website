@@ -31,6 +31,14 @@ const router = createBrowserRouter([
     path: '/Teams',
     element: <Layout flag={"teams"} />
   },
+  {
+    path: '/requests',
+    element: <Layout flag={"requests"} />
+  },
+  {
+    path: '/joinTeam',
+    element: <Layout flag={"joinTeam"} />
+  },
 ]);
 
 
